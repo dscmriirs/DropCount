@@ -14,11 +14,11 @@ class EntryPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-                padding: const EdgeInsets.all(15),
-                alignment: Alignment.centerLeft,
-                child: Image.asset('assets/images/entryPage.svg')),
+                height: 300.0,
+                alignment: Alignment.center,
+                child: Image.asset('assets/images/entryPage.png')),
             Container(
-              padding: const EdgeInsets.all(15),
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
               alignment: Alignment.centerLeft,
               child: Text(
                 'Step 1',
@@ -29,7 +29,7 @@ class EntryPage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
               width: double.infinity,
               child: Text('Turn on device and connect wifi',
                   textAlign: TextAlign.center,
@@ -40,7 +40,7 @@ class EntryPage extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
               alignment: Alignment.centerLeft,
               child: Text(
                 'Step 2',
@@ -62,7 +62,7 @@ class EntryPage extends StatelessWidget {
                   )),
             ),
             Container(
-                padding: EdgeInsets.fromLTRB(15, 0, 15, 15),
+                padding: EdgeInsets.fromLTRB(15, 0, 15, 0),
                 width: double.infinity,
                 child: InkWell(
                   child: Text('http://localhost:5000',
@@ -75,7 +75,7 @@ class EntryPage extends StatelessWidget {
                   onTap: () => launch('http://localhost:5000'),
                 )),
             Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
               alignment: Alignment.centerLeft,
               child: Text(
                 'Step 3',
@@ -86,7 +86,7 @@ class EntryPage extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
               width: double.infinity,
               child: Text('Save your wifi ssid and password',
                   textAlign: TextAlign.center,
@@ -97,7 +97,7 @@ class EntryPage extends StatelessWidget {
                   )),
             ),
             Container(
-              padding: EdgeInsets.all(15),
+              padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
               alignment: Alignment.centerLeft,
               child: Text(
                 'Step 4',
@@ -147,7 +147,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 ),
               )),
           Container(
-            padding: EdgeInsets.all(15),
+            padding: EdgeInsets.fromLTRB(15, 15, 15, 0),
             alignment: Alignment.center,
             child: ElevatedButton(
               onPressed: () {
