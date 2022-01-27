@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './screens/EntryPage.dart';
-import 'screens/AboutPage.dart';
+import '../screens/EntryPage.dart';
+import '../screens/AboutPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +27,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: EntryPage());
+    return Container(child: AboutPage());
   }
 }
