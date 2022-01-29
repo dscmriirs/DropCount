@@ -30,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.of(context)
-          .pushReplacement(MaterialPageRoute(builder: (_) => HomePage()));
+          .pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()));
     });
   }
 
@@ -58,16 +58,43 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 }
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _LoginPageState createState() => _LoginPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Scaffold(
+      backgroundColor: Color(0xffffffff),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.only(left: 30.0, top: 10.0, right: 30.0),
+              child: Image.asset('../assets/images/loginImage.png',
+                  width: 400, height: 250),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 30.0, top: 10.0, right: 30.0),
+              child: Center(
+                  child: Text("Welcome to DropCount",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(color: Colors.blue, fontSize: 35))),
+            ),
+            Container(
+              margin: EdgeInsets.only(
+                  left: 30.0, top: 120.0, right: 30.0, bottom: 20.0),
+              child: Image.asset('../assets/images/googleLogo.png',
+                  width: 200, height: 150),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
