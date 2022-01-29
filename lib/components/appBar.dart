@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AppBar extends StatelessWidget {
-  const AppBar({Key? key}) : super(key: key);
+class appBar extends StatelessWidget with PreferredSizeWidget {
+  const appBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -9,8 +9,11 @@ class AppBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 25),
       height: 30,
       child: Row(
-        children: [],
+        children: [Image.asset('assets/images/drop.png')],
       ),
     );
   }
+
+  @override
+  Size get preferredSize => Size.fromHeight(kToolbarHeight);
 }

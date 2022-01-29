@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../components/appBar.dart';
 
 class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: AppBar(),
+            appBar: const appBar(),
             body: SingleChildScrollView(
                 child: Padding(
               padding: const EdgeInsets.all(8.0),
