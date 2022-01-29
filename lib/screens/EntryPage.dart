@@ -8,7 +8,8 @@ class EntryPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
+      body: SingleChildScrollView(
+          child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -110,7 +111,7 @@ class EntryPage extends StatelessWidget {
             MyCustomForm(),
           ],
         ),
-      ),
+      )),
     );
   }
 }

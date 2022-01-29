@@ -14,9 +14,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Drop Count',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
       home: const MyHomePage(),
     );
   }
@@ -27,6 +24,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(child: AboutPage());
+    return Material(type: MaterialType.transparency, child: AboutPage());
   }
 }
