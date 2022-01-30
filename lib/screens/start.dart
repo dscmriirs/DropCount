@@ -1,7 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
-import 'package:dropcount/screens/start.dart';
-import '../screens/EntryPage.dart';
-import '../screens/AboutPage.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -13,11 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SplashScreen(),
-      title: 'Drop Count',
-      home: const MyHomePage(),
     );
   }
 }
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
 
@@ -34,8 +33,6 @@ class _SplashScreenState extends State<SplashScreen> {
           .pushReplacement(MaterialPageRoute(builder: (_) => LoginPage()));
     });
   }
-class MyHomePage extends StatelessWidget {
-  const MyHomePage({Key? key}) : super(key: key);
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,6 +96,5 @@ class _LoginPageState extends State<LoginPage> {
         ),
       ),
     );
-    return Material(type: MaterialType.transparency, child: AboutPage());
   }
 }
