@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class appBar extends StatelessWidget with PreferredSizeWidget {
+class AppNavbar extends StatelessWidget with PreferredSizeWidget {
   final int streak;
-  const appBar({Key? key, this.streak = 0}) : super(key: key);
+  const AppNavbar({Key? key, this.streak = 0}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -41,7 +41,7 @@ class appBar extends StatelessWidget with PreferredSizeWidget {
                             const BorderRadius.all(Radius.circular(20))),
                     child: Row(children: [
                       Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: Image.asset(
                             'assets/images/drop.png',
                             width: 15,
@@ -56,7 +56,7 @@ class appBar extends StatelessWidget with PreferredSizeWidget {
                         ),
                       ),
                       Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: Image.asset(
                             'assets/images/userIcon.png',
                             width: 25,

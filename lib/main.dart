@@ -3,6 +3,7 @@ import 'screens/EntryPage.dart';
 import 'screens/AboutPage.dart';
 import 'screens/NotConnectedPage.dart';
 import 'screens/Settings.dart';
+import 'screens/start.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,6 +28,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Material(type: MaterialType.transparency, child: Settings());
+    return const Material(
+        type: MaterialType.transparency, child: SplashScreen());
   }
 }

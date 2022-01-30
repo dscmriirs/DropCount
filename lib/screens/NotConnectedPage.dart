@@ -16,7 +16,7 @@ class NotConnected extends StatelessWidget {
               alignment: Alignment.center,
               child: Image.asset('assets/images/notConnected.png')),
           Container(
-            padding: EdgeInsets.fromLTRB(15, 40, 15, 0),
+            padding: const EdgeInsets.fromLTRB(15, 40, 15, 0),
             width: double.infinity,
             child: Text('Not Connected',
                 textAlign: TextAlign.center,
@@ -27,7 +27,7 @@ class NotConnected extends StatelessWidget {
                 )),
           ),
           Container(
-            padding: EdgeInsets.fromLTRB(15, 12, 15, 0),
+            padding: const EdgeInsets.fromLTRB(15, 12, 15, 0),
             width: double.infinity,
             child: Text('Please connect your device on the same wifi network',
                 textAlign: TextAlign.center,

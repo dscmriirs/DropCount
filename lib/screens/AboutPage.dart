@@ -1,13 +1,15 @@
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../components/appBar.dart';
+import '../components/AppBar.dart';
 
 class AboutPage extends StatelessWidget {
+  const AboutPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: const appBar(),
+            appBar: const AppNavbar(),
             body: SingleChildScrollView(
                 child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -39,7 +41,7 @@ class AboutPage extends StatelessWidget {
                               style: GoogleFonts.lato(
                                 fontSize: 30,
                                 fontWeight: FontWeight.w900,
-                                color: Color.fromRGBO(65, 65, 65, 1),
+                                color: const Color.fromRGBO(65, 65, 65, 1),
                               ),
                             ),
                           ),
@@ -49,7 +51,7 @@ class AboutPage extends StatelessWidget {
                             style: GoogleFonts.roboto(
                               fontSize: 30,
                               fontWeight: FontWeight.w700,
-                              color: Color.fromRGBO(65, 65, 65, 1),
+                              color: const Color.fromRGBO(65, 65, 65, 1),
                             ),
                           ),
                         ],
@@ -63,7 +65,7 @@ class AboutPage extends StatelessWidget {
                       style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(65, 65, 65, 1),
+                        color: const Color.fromRGBO(65, 65, 65, 1),
                       ),
                     ),
                   ),
@@ -76,7 +78,7 @@ class AboutPage extends StatelessWidget {
                       style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(65, 65, 65, 1),
+                        color: const Color.fromRGBO(65, 65, 65, 1),
                       ),
                     ),
                   ),
@@ -89,7 +91,7 @@ class AboutPage extends StatelessWidget {
                       style: GoogleFonts.lato(
                         fontSize: 18,
                         fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(65, 65, 65, 1),
+                        color: const Color.fromRGBO(65, 65, 65, 1),
                       ),
                     ),
                   ),
@@ -103,17 +105,17 @@ class AboutPage extends StatelessWidget {
                             style: GoogleFonts.lato(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: Color.fromRGBO(65, 65, 65, 1),
+                              color: const Color.fromRGBO(65, 65, 65, 1),
                             ),
                           ),
-                          new Spacer(),
+                          const Spacer(),
                           Text(
                             'Privacy',
                             textAlign: TextAlign.justify,
                             style: GoogleFonts.lato(
                               fontSize: 16,
                               fontWeight: FontWeight.w400,
-                              color: Color.fromRGBO(65, 65, 65, 1),
+                              color: const Color.fromRGBO(65, 65, 65, 1),
                             ),
                           ),
                         ],

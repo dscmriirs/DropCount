@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../components/appBar.dart';
+import '../components/AppBar.dart';
 
 class Settings extends StatelessWidget {
   final String name, email;
@@ -18,7 +18,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: const appBar(),
+            appBar: const AppNavbar(),
             body: SingleChildScrollView(
                 child: Padding(
                     padding: const EdgeInsets.all(8.0),
@@ -52,7 +52,8 @@ class Settings extends StatelessWidget {
                                         style: GoogleFonts.lato(
                                           fontSize: 30,
                                           fontWeight: FontWeight.w900,
-                                          color: Color.fromRGBO(65, 65, 65, 1),
+                                          color: const Color.fromRGBO(
+                                              65, 65, 65, 1),
                                         ),
                                       ),
                                     ),
@@ -62,7 +63,8 @@ class Settings extends StatelessWidget {
                                       style: GoogleFonts.roboto(
                                         fontSize: 30,
                                         fontWeight: FontWeight.w700,
-                                        color: Color.fromRGBO(65, 65, 65, 1),
+                                        color:
+                                            const Color.fromRGBO(65, 65, 65, 1),
                                       ),
                                     ),
                                   ],
