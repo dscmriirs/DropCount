@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import '../screens/EntryPage.dart';
-import '../screens/AboutPage.dart';
-import '../screens/NotConnectedPage.dart';
+import 'screens/EntryPage.dart';
+import 'screens/AboutPage.dart';
+import 'screens/NotConnectedPage.dart';
+import 'screens/Settings.dart';
 
 void main() {
   runApp(const MyApp());
@@ -26,7 +27,6 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Material(
-        type: MaterialType.transparency, child: NotConnected());
+    return const Material(type: MaterialType.transparency, child: Settings());
   }
 }
