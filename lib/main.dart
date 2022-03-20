@@ -20,9 +20,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return MaterialApp(
+    return ChangeNotifierProvider(
+      create: (context)=> GoogleSignInProvider(),
+      child: const MaterialApp(
       title: 'Drop Count',
-      home: const MyHomePage(),
+      home: MyHomePage(),
+    ),
     );
   }
 }
@@ -32,10 +35,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context)=> GoogleSignInProvider(),
-      child: const Material(
-        type: MaterialType.transparency, child: SplashScreen())
-      );
+    return const Material(
+        type: MaterialType.transparency, child: SplashScreen());
   }
 }
