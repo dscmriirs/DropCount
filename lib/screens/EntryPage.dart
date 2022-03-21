@@ -1,127 +1,171 @@
 // ignore: file_names
+import 'package:dropcount/screens/Dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../components/AppBar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
-class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+class EntryPage extends StatelessWidget {
+  const EntryPage({Key? key}):  super(key: key);
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: Scaffold(
-            appBar: const AppNavbar(),
-            body: SingleChildScrollView(
-                child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(15, 15, 15, 25),
-                      child: Row(
-                        children: [
-                          // InkWell(
-                          //   onTap: () => {},
-                          //   child: Text(
-                          //     '<',
-                          //     textAlign: TextAlign.justify,
-                          //     style: GoogleFonts.lato(
-                          //       fontSize: 16,
-                          //       fontWeight: FontWeight.w400,
-                          //       color: Color.fromRGBO(65, 65, 65, 1),
-                          //     ),
-                          //   ),
-                          // ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 20),
-                            child: Text(
-                              '<',
-                              textAlign: TextAlign.justify,
-                              style: GoogleFonts.lato(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w900,
-                                color: const Color.fromRGBO(65, 65, 65, 1),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            'About Us',
-                            textAlign: TextAlign.justify,
-                            style: GoogleFonts.roboto(
-                              fontSize: 30,
-                              fontWeight: FontWeight.w700,
-                              color: const Color.fromRGBO(65, 65, 65, 1),
-                            ),
-                          ),
-                        ],
-                      )),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
-                    child: Text(
-                      'Like water meter attached in motor side, telling amount of water supplied. We can make a device which can be attached at output side',
-                      textAlign: TextAlign.justify,
-                      style: GoogleFonts.lato(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                        color: const Color.fromRGBO(65, 65, 65, 1),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
-                    child: Text(
-                      '(faucet,shower,etc.) By which we can control the the amount of water to be supplied. For example - If we have to take bath we can allocate a suitable amount of water for it.',
-                      textAlign: TextAlign.justify,
-                      style: GoogleFonts.lato(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                        color: const Color.fromRGBO(65, 65, 65, 1),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.symmetric(
-                        vertical: 10, horizontal: 15),
-                    child: Text(
-                      'This can reduce water wastage. Extras on it - we can make database telling user how much water he used and wasted ,also detecting leakage if there abnormal amount of water usage. And also common things like heating water,tds meter,etc. In Future if this idea succeeded we(with government help) can also make new system of water allocation in which we can fix the amount water per household.',
-                      textAlign: TextAlign.justify,
-                      style: GoogleFonts.lato(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w400,
-                        color: const Color.fromRGBO(65, 65, 65, 1),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                      padding: const EdgeInsets.fromLTRB(50, 30, 50, 0),
-                      child: Row(
-                        children: [
-                          Text(
-                            'Terms & Conditions',
-                            textAlign: TextAlign.justify,
-                            style: GoogleFonts.lato(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              color: const Color.fromRGBO(65, 65, 65, 1),
-                            ),
-                          ),
-                          const Spacer(),
-                          Text(
-                            'Privacy',
-                            textAlign: TextAlign.justify,
-                            style: GoogleFonts.lato(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w400,
-                              color: const Color.fromRGBO(65, 65, 65, 1),
-                            ),
-                          ),
-                        ],
-                      ))
-                ],
+    return Scaffold(
+      body: SingleChildScrollView(
+          child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Container(
+                height: 300.0,
+                alignment: Alignment.center,
+                child: Image.asset('assets/images/entryPage.png')),
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Step 1',
+                style: GoogleFonts.righteous(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(55, 163, 241, 1)),
               ),
-            ))));
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              width: double.infinity,
+              child: Text('Turn on device and connect wifi',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(65, 65, 65, 1),
+                  )),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Step 2',
+                style: GoogleFonts.righteous(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(55, 163, 241, 1)),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              width: double.infinity,
+              child: Text('Go to this link',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(65, 65, 65, 1),
+                  )),
+            ),
+            Container(
+                padding: const EdgeInsets.fromLTRB(15, 0, 15, 0),
+                width: double.infinity,
+                child: InkWell(
+                  child: Text('http://localhost:5000',
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.lato(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w400,
+                        color: const Color.fromRGBO(51, 102, 187, 1),
+                      )),
+                  onTap: () => launch('http://localhost:5000'),
+                )),
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Step 3',
+                style: GoogleFonts.righteous(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(55, 163, 241, 1)),
+              ),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              width: double.infinity,
+              child: Text('Save your wifi ssid and password',
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.lato(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(65, 65, 65, 1),
+                  )),
+            ),
+            Container(
+              padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+              alignment: Alignment.centerLeft,
+              child: Text(
+                'Step 4',
+                style: GoogleFonts.righteous(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w400,
+                    color: const Color.fromRGBO(55, 163, 241, 1)),
+              ),
+            ),
+            MyCustomForm(),
+          ],
+        ),
+      )),
+    );
+  }
+}
+
+class MyCustomForm extends StatefulWidget {
+  const MyCustomForm({Key? key}): super(key: key);
+
+  @override
+  MyCustomFormState createState() {
+    return MyCustomFormState();
+  }
+}
+
+class MyCustomFormState extends State<MyCustomForm> {
+  final _formKey = GlobalKey<FormState>();
+  @override
+  Widget build(BuildContext context) {
+    return Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          SizedBox(
+              width: 200.0,
+              child: TextFormField(
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+                decoration: const InputDecoration(
+                  hintText: 'Enter Device Uniquie ID',
+                ),
+              )),
+          Container(
+            padding: const EdgeInsets.fromLTRB(15, 15, 15, 0),
+            alignment: Alignment.center,
+            child: ElevatedButton(
+              onPressed: () {
+                if (_formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Dashboard()),
+                    );
+                }
+              },
+              child: const Text('Submit'),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

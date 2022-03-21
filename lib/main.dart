@@ -9,7 +9,7 @@ import 'package:firebase_core/firebase_core.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: const FirebaseOptions(apiKey: 'AIzaSyDuA9HjVgpAM7-os84C0--u4tNlq7yjGko', appId: '1:953974172838:android:a0f33736f2d459efcbd867', messagingSenderId: '953974172838', projectId: 'drop-count'));
+  await Firebase.initializeApp(options: const FirebaseOptions(apiKey: 'AIzaSyDuA9HjVgpAM7-os84C0--u4tNlq7yjGko', appId: '1:953974172838:android:a0f33736f2d459efcbd867', messagingSenderId: '953974172838', projectId: 'drop-count', authDomain: 'drop-count.firebaseapp.com'));
   runApp(const MyApp());
 }
 
@@ -20,12 +20,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return ChangeNotifierProvider(
-      create: (context)=> GoogleSignInProvider(),
-      child: const MaterialApp(
+    return const MaterialApp(
       title: 'Drop Count',
+      debugShowCheckedModeBanner: false,
       home: MyHomePage(),
-    ),
     );
   }
 }

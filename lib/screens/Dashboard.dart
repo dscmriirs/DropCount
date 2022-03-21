@@ -1,41 +1,17 @@
 // ignore: file_names
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../components/AppBar.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class Dashboard extends StatelessWidget {
-  final String name;
-  final int percentageSaved;
-  const Dashboard(
-      {Key? key, this.name = 'Demo User', this.percentageSaved = 30})
-      : super(key: key);
+  const Dashboard({Key? key}): super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: const AppNavbar(),
-            // drawer: Drawer(
-            //   child: ListView(
-            //     padding: EdgeInsets.zero,
-            //     children: <Widget>[
-            //       const DrawerHeader(
-            //         child: Text('Drawer Header'),
-            //         decoration: BoxDecoration(
-            //           color: Colors.blue,
-            //         ),
-            //       ),
-            //       ListTile(
-            //         title: Text('Item 1'),
-            //         onTap: () {},
-            //       ),
-            //       ListTile(
-            //         title: Text('Item 2'),
-            //         onTap: () {},
-            //       ),
-            //     ],
-            //   ),
-            // ),
+            appBar: AppNavbar(),
             body: SingleChildScrollView(
                 child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -55,7 +31,7 @@ class Dashboard extends StatelessWidget {
                     padding: const EdgeInsets.all(4),
                     alignment: Alignment.center,
                     child: Text(
-                      name,
+                      '_username.displayName.toString()',
                       style: GoogleFonts.roboto(
                           fontSize: 28, fontWeight: FontWeight.w400),
                     ),
@@ -99,7 +75,7 @@ class Dashboard extends StatelessWidget {
                             Container(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                'You saved water for ' + name + ' houses',
+                                'You saved water for ' + '_username.displayName.toString()' + ' houses',
                                 style: GoogleFonts.roboto(
                                     fontSize: 14, fontWeight: FontWeight.w400),
                               ),
@@ -109,9 +85,9 @@ class Dashboard extends StatelessWidget {
                         CircularPercentIndicator(
                           radius: 60.0,
                           lineWidth: 5.0,
-                          percent: percentageSaved / 100,
+                          percent: 30 / 100,
                           center: Text(
-                            percentageSaved.toString() + "%",
+                            30.toString() + "%",
                             style: GoogleFonts.roboto(
                                 fontSize: 20, fontWeight: FontWeight.w700),
                           ),

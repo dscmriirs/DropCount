@@ -1,5 +1,6 @@
 // ignore_for_file: unnecessary_new
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -18,7 +19,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: const AppNavbar(),
+            appBar: AppNavbar(),
             body: SingleChildScrollView(
                 child: Padding(
                     padding: const EdgeInsets.all(8.0),

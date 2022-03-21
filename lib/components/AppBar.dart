@@ -1,9 +1,28 @@
+import 'package:dropcount/components/drawer.dart';
+import 'package:dropcount/screens/AboutPage.dart';
+import 'package:dropcount/screens/Dashboard.dart';
+import 'package:dropcount/screens/Settings.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+String? _selectedGender=null;
+
+List<DropdownMenuItem<String>> _dropDownItem() {
+  List<String> ddl = ["About US", "Settings", "Dashboard"];
+  return ddl.map(
+          (value) =>
+          DropdownMenuItem(
+            value: value,
+            child: Text(value),
+          )
+  ).toList();
+}
+
+
 class AppNavbar extends StatelessWidget with PreferredSizeWidget {
   final int streak;
-  const AppNavbar({Key? key, this.streak = 0}) : super(key: key);
+  const AppNavbar({Key? key, this.streak = 0}): super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -40,6 +59,35 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
                         borderRadius:
                             const BorderRadius.all(Radius.circular(20))),
                     child: Row(children: [
+                      DropdownButton(
+                        value: _selectedGender,
+                        items: _dropDownItem(),
+                        onChanged: (value){
+                          _selectedGender=value as String?;
+                          switch(value){
+                            case "Settings" :
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Settings()),
+                              );
+                              break;
+                            case "About US" :
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => AboutPage()),
+                              );
+                              break;
+                            case "Dashboard" :
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Dashboard()),
+                              );
+                              break;
+
+                          }
+                        },
+                        hint: Text(''),
+                      ),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 5),
                           child: Image.asset(
@@ -67,7 +115,6 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
               ),
             ]));
   }
-
   @override
   Size get preferredSize => const Size.fromHeight(60);
 }

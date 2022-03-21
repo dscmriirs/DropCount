@@ -1,10 +1,10 @@
 import 'dart:async';
-import 'dart:html';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:provider/provider.dart';
+import '/utils/authentication.dart';
+import '../widgets/google_sign_in_button.dart';
+// import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -71,37 +71,24 @@ class LoginPage extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(color: Colors.blue, fontSize: 35))),
             ),
-            ElevatedButton.icon(onPressed: (){
-              final provider = Provider.of<GoogleSignInProvider>(context,listen: false);
-              provider.googleLogin();
-
-            }, 
-              style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                onPrimary: Colors.black,
+            FutureBuilder(
+                future: Authentication.initializeFirebase(context: context),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) {
+                    return Text('Error initializing Firebase');
+                  } else if (snapshot.connectionState == ConnectionState.done) {
+                    return GoogleSignInButton();
+                  }
+                  return const CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                      Color(0xFFF57C00)
+                    ),
+                  );
+                },
               ),
-            icon: const FaIcon(FontAwesomeIcons.google), label: const Text("Continue with Google"))
           ],
         ),
       ),
     );
-  }
-}
-
-class GoogleSignInProvider extends ChangeNotifier {
-  final googleSignIn = GoogleSignIn();
-  GoogleSignInAccount?_user;
-  GoogleSignInAccount get user => _user!;
-  Future googleLogin() async {
-    final googleUser = await googleSignIn.signIn();
-    if(googleUser==null) return;
-    _user = googleUser;
-    final googleAuth = await googleUser.authentication;
-    final credential = GoogleAuthProvider.credential(
-      accessToken: googleAuth.accessToken,
-      idToken: googleAuth.idToken,
-    );
-    await FirebaseAuth.instance.signInWithCredential(credential);
-    notifyListeners();
   }
 }
