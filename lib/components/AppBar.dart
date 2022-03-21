@@ -52,7 +52,6 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
                   ),
                   const Spacer(),
                   Container(
-                    padding: const EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: const Color.fromARGB(255, 220, 220, 220)),
@@ -86,7 +85,6 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
 
                           }
                         },
-                        hint: Text(''),
                       ),
                       Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 5),

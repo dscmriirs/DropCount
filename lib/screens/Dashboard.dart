@@ -6,7 +6,8 @@ import '../components/AppBar.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class Dashboard extends StatelessWidget {
-  const Dashboard({Key? key}): super(key: key);
+  Dashboard({Key? key}): super(key: key);
+  final User? _username = FirebaseAuth.instance.currentUser;
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,7 +32,7 @@ class Dashboard extends StatelessWidget {
                     padding: const EdgeInsets.all(4),
                     alignment: Alignment.center,
                     child: Text(
-                      '_username.displayName.toString()',
+                      _username!.displayName.toString(),
                       style: GoogleFonts.roboto(
                           fontSize: 28, fontWeight: FontWeight.w400),
                     ),
@@ -75,7 +76,7 @@ class Dashboard extends StatelessWidget {
                             Container(
                               alignment: Alignment.centerLeft,
                               child: Text(
-                                'You saved water for ' + '_username.displayName.toString()' + ' houses',
+                                'You saved water for ' + _username!.displayName.toString() + ' houses',
                                 style: GoogleFonts.roboto(
                                     fontSize: 14, fontWeight: FontWeight.w400),
                               ),
