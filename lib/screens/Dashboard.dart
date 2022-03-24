@@ -1,13 +1,28 @@
 // ignore: file_names
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../components/AppBar.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
-class Dashboard extends StatelessWidget {
-  Dashboard({Key? key}): super(key: key);
+class Dashboard extends StatefulWidget {
+  Dashboard({ Key? key }) : super(key: key);
+  @override
+  State<Dashboard> createState() => _DashboardState();
+}
+
+class _DashboardState extends State<Dashboard> {
   final User? _username = FirebaseAuth.instance.currentUser;
+  getData () async {
+    var ref = FirebaseDatabase.instance.ref();
+    var data = await ref.child('/drop-count-default-rtdb/').get();
+    if(data.exists) {
+      return data.value;
+    }
+  }
+  final Future<FirebaseApp> _future = Firebase.initializeApp();
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -140,6 +155,14 @@ class Dashboard extends StatelessWidget {
                                           fontWeight: FontWeight.w700)),
                                 )),
                               ]))),
+                              FutureBuilder( future: _future, builder: (context, snapshot) {
+                                if(snapshot.hasError){
+                                  return Text(snapshot.error.toString());}
+                                else {
+                                  return Text(getData().toString());
+                                  }
+                                }
+                              )
                 ],
               ),
             ))));
