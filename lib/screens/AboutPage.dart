@@ -1,15 +1,15 @@
-// ignore: file_names
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../components/AppBar.dart';
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}) : super(key: key);
+  const AboutPage({Key? key}): super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: const AppNavbar(),
+            appBar: AppNavbar(),
             body: SingleChildScrollView(
                 child: Padding(
               padding: const EdgeInsets.all(8.0),

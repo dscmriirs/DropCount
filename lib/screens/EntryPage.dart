@@ -1,11 +1,12 @@
 // ignore: file_names
+import 'package:dropcount/screens/Dashboard.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EntryPage extends StatelessWidget {
-  const EntryPage({Key? key}) : super(key: key);
-
+  const EntryPage({Key? key}):  super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -109,7 +110,7 @@ class EntryPage extends StatelessWidget {
                     color: const Color.fromRGBO(55, 163, 241, 1)),
               ),
             ),
-            const MyCustomForm(),
+            MyCustomForm(),
           ],
         ),
       )),
@@ -118,7 +119,7 @@ class EntryPage extends StatelessWidget {
 }
 
 class MyCustomForm extends StatefulWidget {
-  const MyCustomForm({Key? key}) : super(key: key);
+  const MyCustomForm({Key? key}): super(key: key);
 
   @override
   MyCustomFormState createState() {
@@ -153,7 +154,12 @@ class MyCustomFormState extends State<MyCustomForm> {
             alignment: Alignment.center,
             child: ElevatedButton(
               onPressed: () {
-                if (_formKey.currentState!.validate()) {}
+                if (_formKey.currentState!.validate()) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Dashboard()),
+                    );
+                }
               },
               child: const Text('Submit'),
             ),

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'screens/EntryPage.dart';
 import 'screens/AboutPage.dart';
 import 'screens/NotConnectedPage.dart';
 import 'screens/Settings.dart';
-import 'screens/start.dart';
-import 'package:firebase_core/firebase_core.dart';
+import 'screens/LoginPage.dart';
+import 'screens/splasScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(options: const FirebaseOptions(apiKey: 'AIzaSyDuA9HjVgpAM7-os84C0--u4tNlq7yjGko', appId: '1:953974172838:android:a0f33736f2d459efcbd867', messagingSenderId: '953974172838', projectId: 'drop-count'));
+  await Firebase.initializeApp(options: const FirebaseOptions(apiKey: 'AIzaSyDuA9HjVgpAM7-os84C0--u4tNlq7yjGko', appId: '1:953974172838:android:a0f33736f2d459efcbd867', messagingSenderId: '953974172838', projectId: 'drop-count', authDomain: 'drop-count.firebaseapp.com'));
   runApp(const MyApp());
 }
 
@@ -20,9 +21,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Drop Count',
-      home: const MyHomePage(),
+      debugShowCheckedModeBanner: false,
+      home: MyHomePage(),
     );
   }
 }
@@ -32,10 +34,7 @@ class MyHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context)=> GoogleSignInProvider(),
-      child: const Material(
-        type: MaterialType.transparency, child: SplashScreen())
-      );
+    return Material(
+        type: MaterialType.transparency, child: SplashScreen());
   }
 }

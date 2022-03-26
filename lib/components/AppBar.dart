@@ -1,9 +1,11 @@
+import 'package:dropcount/screens/AboutPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+
 class AppNavbar extends StatelessWidget with PreferredSizeWidget {
   final int streak;
-  const AppNavbar({Key? key, this.streak = 0}) : super(key: key);
+  const AppNavbar({Key? key, this.streak = 0}): super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -14,11 +16,18 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
             children: [
               Row(
                 children: [
-                  Image.asset(
-                    'assets/images/drop.png',
-                    width: 17,
-                    fit: BoxFit.fill,
-                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => const AboutPage()),
+                      );
+                    }, 
+                    child: Image.asset(
+                      'assets/images/drop.png',
+                      width: 17,
+                      fit: BoxFit.fill,
+                  )),
                   Container(
                     padding: const EdgeInsets.only(left: 5),
                     child: Text(
@@ -33,7 +42,7 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
                   ),
                   const Spacer(),
                   Container(
-                    padding: const EdgeInsets.all(5),
+                    padding: EdgeInsets.all(5),
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: const Color.fromARGB(255, 220, 220, 220)),
@@ -67,7 +76,6 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
               ),
             ]));
   }
-
   @override
   Size get preferredSize => const Size.fromHeight(60);
 }
