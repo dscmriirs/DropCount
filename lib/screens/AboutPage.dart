@@ -1,10 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
+// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../components/AppBar.dart';
+import 'Dashboard.dart';
 
 class AboutPage extends StatelessWidget {
-  const AboutPage({Key? key}): super(key: key);
+  const AboutPage({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -21,27 +22,24 @@ class AboutPage extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(15, 15, 15, 25),
                       child: Row(
                         children: [
-                          // InkWell(
-                          //   onTap: () => {},
-                          //   child: Text(
-                          //     '<',
-                          //     textAlign: TextAlign.justify,
-                          //     style: GoogleFonts.lato(
-                          //       fontSize: 16,
-                          //       fontWeight: FontWeight.w400,
-                          //       color: Color.fromRGBO(65, 65, 65, 1),
-                          //     ),
-                          //   ),
-                          // ),
-                          Padding(
-                            padding: const EdgeInsets.only(right: 20),
-                            child: Text(
-                              '<',
-                              textAlign: TextAlign.justify,
-                              style: GoogleFonts.lato(
-                                fontSize: 30,
-                                fontWeight: FontWeight.w900,
-                                color: const Color.fromRGBO(65, 65, 65, 1),
+                          FlatButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const Dashboard()),
+                              );
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.only(right: 20),
+                              child: Text(
+                                '<',
+                                textAlign: TextAlign.justify,
+                                style: GoogleFonts.lato(
+                                  fontSize: 30,
+                                  fontWeight: FontWeight.w900,
+                                  color: const Color.fromRGBO(65, 65, 65, 1),
+                                ),
                               ),
                             ),
                           ),

@@ -2,10 +2,9 @@ import 'package:dropcount/screens/AboutPage.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
 class AppNavbar extends StatelessWidget with PreferredSizeWidget {
   final int streak;
-  const AppNavbar({Key? key, this.streak = 0}): super(key: key);
+  const AppNavbar({Key? key, this.streak = 0}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -16,30 +15,33 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
             children: [
               Row(
                 children: [
-                  ElevatedButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => const AboutPage()),
-                      );
-                    }, 
-                    child: Image.asset(
-                      'assets/images/drop.png',
-                      width: 17,
-                      fit: BoxFit.fill,
-                  )),
-                  Container(
-                    padding: const EdgeInsets.only(left: 5),
-                    child: Text(
-                      'DropCount',
-                      textAlign: TextAlign.justify,
-                      style: GoogleFonts.roboto(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w700,
-                        color: const Color.fromRGBO(111, 111, 111, 1),
-                      ),
-                    ),
-                  ),
+                  FlatButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const AboutPage()),
+                        );
+                      },
+                      child: Row(children: [
+                        Image.asset(
+                          'assets/images/drop.png',
+                          width: 17,
+                          fit: BoxFit.fill,
+                        ),
+                        Container(
+                          padding: const EdgeInsets.only(left: 5),
+                          child: Text(
+                            'DropCount',
+                            textAlign: TextAlign.justify,
+                            style: GoogleFonts.roboto(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: const Color.fromRGBO(111, 111, 111, 1),
+                            ),
+                          ),
+                        ),
+                      ])),
                   const Spacer(),
                   Container(
                     padding: EdgeInsets.all(5),
@@ -76,6 +78,7 @@ class AppNavbar extends StatelessWidget with PreferredSizeWidget {
               ),
             ]));
   }
+
   @override
   Size get preferredSize => const Size.fromHeight(60);
 }
