@@ -1,10 +1,13 @@
-# Drop Count
+<p align="center">
+    <img src="images/splash screen.png" >
+  </a>
 
-Solution Challenge Application
 
-## Getting Started
+## Table of contents
 
-```flutter pub get```
-
-```flutter run```
-
+- [Overview](#overview)
+- [Screenshots](#screenshots)
+- [Build and run](#build-and-run)
+- [Bugs and feature requests](#bugs-and-feature-requests)
+- [Contributing](#contributing)
+- [Copyright and license](#copyright-and-license)
