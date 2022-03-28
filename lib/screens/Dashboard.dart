@@ -5,9 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import '../components/AppBar.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import './Settings.dart';
-import './AboutPage.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
 class Dashboard extends StatefulWidget {
   const Dashboard({Key? key}) : super(key: key);
@@ -16,33 +13,21 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> {
-  void initState() {
-    super.initState();
-    readData();
-  }
   final User? _username = FirebaseAuth.instance.currentUser;
-  bool isLoading = true;
-  List<String> list = [];
-  Future<Map> readData() async {
-    // Please replace the Database URL
-    // which we will get in “Add Realtime Database”
-    // step with DatabaseURL
-
-    var url = "https://drop-count-default-rtdb.firebaseio.com/" + "test" + ".json";
-    // Do not remove “data.json”,keep it as it is
-      final response = await http.get(Uri.parse(url));
-      final extractedData = json.decode(response.body) as Map<String, dynamic>;
-      // ignore: unnecessary_null_comparison
-      if (extractedData == null) {
-        return {};
-      }
-      print(extractedData);
-      return extractedData;
-      setState(() {
-        isLoading = false;
-      });
-  }
-
+  final data = {
+    "01-01-1970": 0,
+    "12-3-22": 65,
+    "13-3-22": 56,
+    "14-3-22": 45,
+    "15-3-22": 56,
+    "16-3-22": 32,
+    "17-3-22": 22,
+    "18-3-22": 10,
+    "19-3-22": 15,
+    "25-03-2022": 0,
+    "26-03-2022": 4312
+  };
+  final _waterSaved = 30;
   @override
   Widget build(BuildContext context) {
     return PageView(children: [
@@ -53,7 +38,7 @@ class _DashboardState extends State<Dashboard> {
                   child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Column(
-                  children: <Widget>[
+                  children: [
                     Container(
                       width: double.infinity,
                       padding: const EdgeInsets.all(4),
@@ -97,10 +82,10 @@ class _DashboardState extends State<Dashboard> {
                       alignment: Alignment.centerLeft,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
+                        children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
+                            children: [
                               Container(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
@@ -114,21 +99,22 @@ class _DashboardState extends State<Dashboard> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   'You saved water for ' +
-                                      _username!.displayName.toString() +
+                                      (_waterSaved / 40).ceil().toString() +
                                       ' houses',
                                   style: GoogleFonts.roboto(
                                       fontSize: 14,
                                       fontWeight: FontWeight.w400),
+                                  softWrap: true,
                                 ),
                               ),
                             ],
                           ),
                           CircularPercentIndicator(
-                            radius: 60.0,
+                            radius: 40.0,
                             lineWidth: 5.0,
-                            percent: 30 / 100,
+                            percent: _waterSaved / 40,
                             center: Text(
-                              30.toString() + "%",
+                              _waterSaved.toString() + "%",
                               style: GoogleFonts.roboto(
                                   fontSize: 20, fontWeight: FontWeight.w700),
                             ),
@@ -140,7 +126,7 @@ class _DashboardState extends State<Dashboard> {
                       ),
                     ),
                     Container(
-                        // margin: ,
+                        margin: EdgeInsets.symmetric(vertical: 10.0),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10),
                           color: const Color.fromRGBO(245, 245, 245, 1.0),
@@ -180,34 +166,10 @@ class _DashboardState extends State<Dashboard> {
                                             fontWeight: FontWeight.w700)),
                                   )),
                                 ]))),
-                              
-               ListView.builder(
-                  padding: const EdgeInsets.all(8),
-                  itemCount: list.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                        height: 50,
-                        child: Center(
-                          child: Text(
-                            list[index],
-                            style: TextStyle(color: Colors.green),
-                          ),
-                        ));
-                  }),
-                  Text(readData().toString())
                   ],
                 ),
               )))),
       Settings()
     ]);
-
-//   void readData(){
-//   databaseReference.once().then((DataSnapshot snapshot) {
-//     print('Data : ${snapshot.value}');
-//   });
-// }
   }
-
-  @override
-  noSuchMethod(Invocation invocation) => super.noSuchMethod(invocation);
 }
