@@ -2,8 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:flutter/material.dart';
-import '../../screens/Dashboard.dart';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import '../../screens/dashboard.dart';
+import 'package:flutter/foundation.dart' show kDebugMode, kIsWeb;
 
 class Authentication {
   static SnackBar customSnackBar({required String content}) {
@@ -25,7 +25,7 @@ class Authentication {
 
     if (user != null) {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => Dashboard()),
+        MaterialPageRoute(builder: (context) => const Dashboard()),
       );
     }
 
@@ -45,7 +45,9 @@ class Authentication {
 
         user = userCredential.user;
       } catch (e) {
-        print(e);
+        if (kDebugMode) {
+          print(e);
+        }
       }
     } else {
       final GoogleSignIn googleSignIn = GoogleSignIn();

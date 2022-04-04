@@ -1,8 +1,8 @@
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import '../components/AppBar.dart';
-import 'Dashboard.dart';
+import '../components/app_bar.dart';
+import 'dashboard.dart';
 
 class AboutPage extends StatelessWidget {
   const AboutPage({Key? key}) : super(key: key);
@@ -10,7 +10,7 @@ class AboutPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-            appBar: AppNavbar(),
+            appBar: const AppNavbar(),
             body: SingleChildScrollView(
                 child: Padding(
               padding: const EdgeInsets.all(8.0),
@@ -22,7 +22,7 @@ class AboutPage extends StatelessWidget {
                       padding: const EdgeInsets.fromLTRB(15, 15, 15, 25),
                       child: Row(
                         children: [
-                          FlatButton(
+                          TextButton(
                             onPressed: () {
                               Navigator.push(
                                 context,

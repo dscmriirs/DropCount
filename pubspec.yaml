@@ -41,6 +41,8 @@ dependencies:
   awesome_dropdown: ^0.0.4
   firebase_database: ^9.0.8
   firebase_database_web: ^0.2.0+7
+  http: ^0.13.4
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

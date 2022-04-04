@@ -1,11 +1,11 @@
-import 'package:dropcount/screens/AboutPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import '../screens/EntryPage.dart';
-import '../screens/Dashboard.dart';
+import '../screens/dashboard.dart';
 import '/utils/authentication.dart';
 
 class GoogleSignInButton extends StatefulWidget {
+  const GoogleSignInButton({Key? key}) : super(key: key);
+
   @override
   _GoogleSignInButtonState createState() => _GoogleSignInButtonState();
 }
@@ -41,7 +41,7 @@ class _GoogleSignInButtonState extends State<GoogleSignInButton> {
                 });
                 if (user != null) {
                   Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => Dashboard()),
+                    MaterialPageRoute(builder: (context) => const Dashboard()),
                   );
                 }
               },

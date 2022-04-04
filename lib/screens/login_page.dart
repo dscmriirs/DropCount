@@ -1,4 +1,3 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import '/utils/authentication.dart';
 import '../authentication/google_sign_in_button.dart';
@@ -30,9 +29,9 @@ class LoginPage extends StatelessWidget {
               future: Authentication.initializeFirebase(context: context),
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
-                  return Text('Error initializing Firebase');
+                  return const Text('Error initializing Firebase');
                 } else if (snapshot.connectionState == ConnectionState.done) {
-                  return GoogleSignInButton();
+                  return const GoogleSignInButton();
                 }
                 return const CircularProgressIndicator(
                   valueColor: AlwaysStoppedAnimation<Color>(Color(0xFFF57C00)),

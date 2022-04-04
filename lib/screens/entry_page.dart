@@ -1,6 +1,5 @@
 // ignore: file_names
-import 'package:dropcount/screens/Dashboard.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:dropcount/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -110,7 +109,7 @@ class EntryPage extends StatelessWidget {
                     color: const Color.fromRGBO(55, 163, 241, 1)),
               ),
             ),
-            MyCustomForm(),
+            const MyCustomForm(),
           ],
         ),
       )),
@@ -157,7 +156,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                 if (_formKey.currentState!.validate()) {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Dashboard()),
+                    MaterialPageRoute(builder: (context) => const Dashboard()),
                   );
                 }
               },
