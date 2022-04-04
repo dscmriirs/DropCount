@@ -8,6 +8,7 @@
 ## Table of contents
 
 - [Overview](#overview)
+- [Download](#download-apk)
 - [Build and run](#build-and-run)
 - [Instaling](#installing)
 - [Screenshots](#screenshots)
@@ -17,6 +18,9 @@
 
 Water Usage Detector: This device consists of a water flow sensor and nodemcu. It is connected with firebase to send data directly to the database, from where the data is fetched by our app displays the water usage. It would be installed at the water tank outlet and when water is passed through it Water Flow Sensor will get record the readings and through Nodemcu it directly sends data to the firebase.
 
+## Download APK
+
+<a href="https://drive.google.com/file/d/1bDfvdn-f0zjd5_sJoub4thquUPWdG7xJ" target="_blank"> Click Here! </a>
       
 ## Build and run
 * Assuming this is your first project, install [flutter](https://flutter.dev/docs/get-started/install)
